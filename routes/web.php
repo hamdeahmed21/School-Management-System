@@ -1,18 +1,23 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AssignStudentController;
 use App\Http\Controllers\Admin\AssignSubjectController;
 use App\Http\Controllers\Admin\DesignationController;
+use App\Http\Controllers\Admin\ExamFeeController;
 use App\Http\Controllers\Admin\ExamTypeController;
 use App\Http\Controllers\Admin\FeeAmountController;
 use App\Http\Controllers\Admin\FeeCategoryController;
+use App\Http\Controllers\Admin\MonthlyFeeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SchoolSubjectController;
 use App\Http\Controllers\Admin\StudentClassController;
 use App\Http\Controllers\Admin\StudentGroupController;
+use App\Http\Controllers\Admin\StudentRollController;
 use App\Http\Controllers\Admin\StudentShiftController;
 use App\Http\Controllers\Admin\StudentYearController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\RegistrationFeeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -174,4 +179,51 @@ Route::prefix('setups')->group(function() {
 
     Route::get('designation/delete/{id}', [DesignationController::class, 'destroy'])->name('designation.delete');
 
+});
+/// Student Registration Routes
+Route::prefix('students')->group(function() {
+
+    Route::get('/reg/view', [AssignStudentController::class, 'index'])->name('student.registration.view');
+
+    Route::get('/reg/Add', [AssignStudentController::class, 'create'])->name('student.registration.add');
+
+    Route::post('/reg/store', [AssignStudentController::class, 'store'])->name('store.student.registration');
+
+    Route::get('/year/class/wise', [AssignStudentController::class, 'ClassYearWise'])->name('student.year.class.wise');
+
+    Route::get('/reg/edit/{student_id}', [AssignStudentController::class, 'edit'])->name('student.registration.edit');
+
+    Route::post('/reg/update/{student_id}', [AssignStudentController::class, 'update'])->name('update.student.registration');
+
+    Route::get('/reg/promotion/{student_id}', [AssignStudentController::class, 'RegPromotion'])->name('student.registration.promotion');
+
+    Route::post('/reg/update/promotion/{student_id}', [AssignStudentController::class, 'UpdatePromotion'])->name('promotion.student.registration');
+
+    Route::get('/reg/details/{student_id}', [AssignStudentController::class, 'Details'])->name('student.registration.details');
+
+    // Student Roll Generate Routes
+    Route::get('/roll/generate/view', [StudentRollController::class, 'StudentRollView'])->name('roll.generate.view');
+
+    Route::get('/reg/getstudents', [StudentRollController::class, 'GetStudents'])->name('student.registration.getstudents');
+
+    Route::post('/roll/generate/store', [StudentRollController::class, 'StudentRollStore'])->name('roll.generate.store');
+// Registration Fee Routes
+    Route::get('/reg/fee/view', [RegistrationFeeController::class, 'RegFeeView'])->name('registration.fee.view');
+
+    Route::get('/reg/fee/classwisedata', [RegistrationFeeController::class, 'RegFeeClassData'])->name('student.registration.fee.classwise.get');
+
+    Route::get('/reg/fee/payslip', [RegistrationFeeController::class, 'RegFeePayslip'])->name('student.registration.fee.payslip');
+    // Monthly Fee Routes
+    Route::get('/monthly/fee/view', [MonthlyFeeController::class, 'MonthlyFeeView'])->name('monthly.fee.view');
+
+    Route::get('/monthly/fee/classwisedata', [MonthlyFeeController::class, 'MonthlyFeeClassData'])->name('student.monthly.fee.classwise.get');
+
+    Route::get('/monthly/fee/payslip', [MonthlyFeeController::class, 'MonthlyFeePayslip'])->name('student.monthly.fee.payslip');
+
+// Exam Fee Routes
+    Route::get('/exam/fee/view', [ExamFeeController::class, 'ExamFeeView'])->name('exam.fee.view');
+
+    Route::get('/exam/fee/classwisedata', [ExamFeeController::class, 'ExamFeeClassData'])->name('student.exam.fee.classwise.get');
+
+    Route::get('/exam/fee/payslip', [ExamFeeController::class, 'ExamFeePayslip'])->name('student.exam.fee.payslip');
 });

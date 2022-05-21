@@ -34,6 +34,7 @@ view user
                                             <th>Role</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Code</th>
                                             <th width="25%">Action</th>
 
                                         </tr>
@@ -43,9 +44,10 @@ view user
                                         @foreach($users as $User )
                                             <tr>
                                                 <td>{{ $i++ }}</td>
-                                                <td> {{ $User->usertype }}</td>
+                                                <td> {{ $User->role }}</td>
                                                 <td>{{ $User->name }}</td>
                                                 <td>{{ $User->email }}</td>
+                                                <td>{{ $User->code }}</td>
                                                 <td>
                                                     <a href="{{ route('users.edit',$User->id) }}" class="btn btn-info">Edit</a>
                                                     <a href="{{ route('users.delete',$User->id) }}" class="btn btn-danger" id="delete">Delete</a>
