@@ -23,42 +23,20 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li class="header nav-small-cap">User Interface</li>
-
             <li class="treeview">
                 <a href="#">
                     <i data-feather="layers"></i>
-                    <span>Multilevel</span>
+                    <span>Manage User</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="#">Level One</a></li>
-                    <li class="treeview">
-                        <a href="#">Level One
-                            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#">Level Two</a></li>
-                            <li class="treeview">
-                                <a href="#">Level Two
-                                    <span class="pull-right-container">
-					  <i class="fa fa-angle-right pull-right"></i>
-					</span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    <li><a href="#">Level Three</a></li>
-                                    <li><a href="#">Level Three</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Level One</a></li>
+                    <li><a href="{{route('user.view')}}">View User</a></li>
+                    <li><a href="{{route('users.add')}}">Add User</a></li>
                 </ul>
             </li>
+            <li class="header nav-small-cap">User Interface</li>
 
             <li>
                 <a href="{{route('logout')}}">
