@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class ExamType extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'fee_category_id',
+        'class_id',
+        'amount',
+    ];
 }
