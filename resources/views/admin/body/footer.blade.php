@@ -5,7 +5,7 @@
                 <a class="nav-link" href="#">FAQ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Purchase Now</a>php
+                <a class="nav-link" href="#">Purchase Now</a>
             </li>
         </ul>
     </div>
